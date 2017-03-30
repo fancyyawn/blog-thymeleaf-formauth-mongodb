@@ -17,6 +17,11 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
+	<properties>
+		<thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
+		<thymeleaf-layout-dialect.version>2.2.0</thymeleaf-layout-dialect.version>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>top.zhacker.blog</groupId>
