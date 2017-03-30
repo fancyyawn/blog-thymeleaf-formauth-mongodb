@@ -15,15 +15,15 @@
 
 ## usage
 
-### step1: config the mysql connection string
+### step1: config the mongodb database
 
-* config location：`blog-hbs-spring-formauth-jpa/blog-hbs-formauth/src/main/resources/application.yaml`
-* config item: `spring.datasource.url: jdbc:mysql://localhost:3306/blog?characterEncoding=UTF-8&useSSL=false`
+* config location：`blog-thymeleaf-formauth-mongodb/blog-thymeleaf-formauth/src/main/resources/application.yaml`
+* config item: `spring.data.mongodb.database: blog`
 
 ### step2: run the website
 ```sh
-git clone https://github.com/fancyyawn/blog-hbs-spring-formauth-jpa.git
-cd blog-hbs-spring-formauth-jpa
+git clone https://github.com/fancyyawn/blog-thymeleaf-formauth-mongodb.git
+cd blog-thymeleaf-formauth-mongodb
 mvn spring-boot:run
 ```
 ## tips
