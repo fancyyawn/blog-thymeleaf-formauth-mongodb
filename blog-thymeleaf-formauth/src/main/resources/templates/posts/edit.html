@@ -11,7 +11,7 @@
         <a class="avatar"
            th:href="@{/posts(author=${post.author.id})}"
            th:attr="data-title=${post.author.username},data-content=${post.author.bio}">
-            <img class="ui circular image" th:src="@{|/upload/${post.author.avatar}|}">
+            <img class="ui circular image" th:src="${post.author.avatar}">
             <br/>
             <span>[[${post.author.username}]]</span>
         </a>

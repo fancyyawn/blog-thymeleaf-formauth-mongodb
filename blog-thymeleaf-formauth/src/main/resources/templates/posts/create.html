@@ -10,8 +10,10 @@
     <div class="three wide column">
         <a class="avatar"
            th:href="@{/posts(author=${currentUser.id})}"
-           th:attr="data-title=${currentUser.username}, data-content=${currentUser.bio}">
-            <img class="avatar" th:src="@{|/upload/${currentUser.avatar}|}">
+           th:attr="data-title=${currentUser.username},data-content=${currentUser.bio}">
+            <img class="ui circular image" th:src="${currentUser.avatar}">
+            <br/>
+            <span>[[${currentUser.username}]]</span>
         </a>
     </div>
 

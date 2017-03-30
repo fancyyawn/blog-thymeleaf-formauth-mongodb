@@ -10,7 +10,7 @@
 
                     <div class="comment" th:each="comment : ${post.comments}">
                         <span class="avatar">
-                          <img th:src="@{|/upload/${comment.author.avatar} |}">
+                          <img th:src="${comment.author.avatar}">
                         </span>
                         <div class="content">
                             <a class="author" th:href="@{/posts(author=${comment.author.id})}">
@@ -22,18 +22,17 @@
                             <div class="text">[[${comment.content }]]</div>
 
                             <div class="actions" th:if="${comment.author.id == currentUser.id}">
-                                <a class="reply"
-                                   th:href="@{/posts/{postId}/comment/{commentId}/remove
-                                    (postId=${post.id}, commentId=${comment.id})}">
-                                    删除
-                                </a>
+                                <form th:action="@{/posts/{postId}/comments/{commentId}/remove
+                                    (postId=${post.id}, commentId=${comment.id})}" method="post">
+                                    <button class="ui green basic button" type="submit">删除</button>
+                                </form>
                             </div>
                         </div>
                     </div>
 
                     <form class="ui reply form" method="post"
                           th:if="${currentUser}"
-                          th:action="@{/posts/{postId}/comment(postId=${post.id})}">
+                          th:action="@{/posts/{postId}/comments(postId=${post.id})}">
                         <div class="field">
                             <textarea name="content"></textarea>
                         </div>

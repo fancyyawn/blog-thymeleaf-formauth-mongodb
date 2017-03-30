@@ -13,7 +13,7 @@
                 <a class="avatar"
                    th:href="@{/posts(author=${post.author.id})}"
                    th:attr="data-title=${post.author.username}, data-content=${post.author.bio}">
-                    <img class="ui circular image" th:src="@{|/upload/${post.author.avatar}|}">
+                    <img class="ui circular image" th:src="${post.author.avatar}">
                     <br/>
                     <span>[[${post.author.username}]]</span>
                 </a>
@@ -27,12 +27,18 @@
                         <span class="tag right">
                             <span>浏览([[${post.pv}]])</span>
                             <span>留言([[${post.comments.total}]])</span>
-                            <div class="ui inline dropdown">
+                            <div class="ui inline dropdown" th:if="${post.author.id == currentUser.id}">
                                 <div class="text"></div>
                                 <i class="dropdown icon"></i>
                                 <div class="menu">
-                                    <div class="item"><a th:href="@{/posts/{id}/edit (id=${post.id})}">编辑</a> </div>
-                                    <div class="item"><a th:href="@{/posts/{id}/remove (id=${post.id})}">删除</a> </div>
+                                    <div class="item">
+                                        <a  class="ui green basic button" th:href="@{/posts/{id}/edit (id=${post.id})}">编辑</a>
+                                    </div>
+                                    <div class="item">
+                                        <form th:action="@{/posts/{id}/remove (id=${post.id})}" method="post">
+                                            <button class="ui green basic button" type="submit">删除</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </span>
